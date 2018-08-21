@@ -22,7 +22,7 @@ class Animal{
 
 class Penguin extends Animal{
 	public Penguin(String name,int id){
-		super(name,id);
+		super(name,id);   //父类构造器不能继承，如果父类的构造器带有参数，必须在子类的构造器中显式的通过super调用父类的构造器并添加合适的参数列表。
 	}
 }
 
