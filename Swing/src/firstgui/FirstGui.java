@@ -11,7 +11,7 @@ public class FirstGui {
 		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		
-		JPanel panel=new JPanel();				//创建面板容器
+		JPanel panel=new JPanel();				//创建面板容器,使用默认的布局管理器
 		
 		
 		JButton btn=new JButton("按钮");			//创建按钮
