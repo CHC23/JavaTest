@@ -2,9 +2,11 @@ package guiDemo;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class calculator {
 	public static void main(String[] args) {
+		String c="hello world";
 		
 		JFrame jf=new JFrame("计算器");
 		jf.setSize(300,500);
@@ -12,8 +14,8 @@ public class calculator {
 		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 		GridLayout layout=new GridLayout(3,3);			//3*3的网格布局
-		layout.setHgap(2);								//设置水平间距
-		layout.setVgap(2);								//设置垂直间距
+		layout.setHgap(10);								//设置水平间距
+		layout.setVgap(10);								//设置垂直间距
 			
 		
 		
@@ -31,6 +33,7 @@ public class calculator {
 //		JButton btn_1=new JButton("1");
 //		JButton btn_1=new JButton("1");
 //		JButton btn_1=new JButton("1");
+		btn_1.setLocation(22,33);
 		
 		panel.add(btn_1);
 		panel.add(btn_2);
