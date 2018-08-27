@@ -9,7 +9,7 @@ public class FirstGameTest extends JFrame{
 	Image backImg=GameUtil.getImage("images/back.jpg");
 	Image planeImg=GameUtil.getImage("images/2.png");
 	
-	Plane plane=new Plane(planeImg,250,350,2);
+	Plane plane=new Plane(planeImg,250,350,3);
 	
 	public void paint(Graphics g) {
 		g.drawImage(backImg,0,0,null);
@@ -43,7 +43,7 @@ public class FirstGameTest extends JFrame{
 		}
 		
 		//ËÉ¿ª½¨
-		public void keyRelesaed(KeyEvent e) {
+		public void keyReleased(KeyEvent e) {
 			plane.keyDown(e);
 		}
 	}

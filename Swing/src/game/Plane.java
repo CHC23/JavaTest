@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class Plane extends GamePlane{
-	int speed=2;
+//	int speed=3;
 	boolean left,right,up,down;
 	
 	
@@ -28,8 +28,8 @@ public class Plane extends GamePlane{
 		this.img=img;
 		this.x=x;
 		this.y=y;
-//		this.speed=speed;
-		
+		this.speed=speed;
+			
 	}
 	
 	
