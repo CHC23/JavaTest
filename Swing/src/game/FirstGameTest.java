@@ -9,13 +9,13 @@ public class FirstGameTest extends JFrame{
 	Image backImg=GameUtil.getImage("images/back.jpg");
 	Image planeImg=GameUtil.getImage("images/2.png");
 	
-	Plane plane=new Plane(planeImg,250,350,3);
+	Plane plane=new Plane(planeImg,250,350,20);
 	
 	public void paint(Graphics g) {
 		g.drawImage(backImg,0,0,null);
 //		g.drawImage(planeImg,300,350,null);
 		plane.drawSelf(g);
-		
+	
 		
 	}
 	
@@ -66,3 +66,5 @@ public class FirstGameTest extends JFrame{
 		test.startFrame();
 	}
 }
+
+//前天昨天赶路，今天歇会儿
