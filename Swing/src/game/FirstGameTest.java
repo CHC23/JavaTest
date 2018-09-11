@@ -11,21 +11,20 @@ public class FirstGameTest extends JFrame{
 	Plane plane=new Plane(planeImg,220,650,20);
 	Shell[] shell=new Shell[20];
 	
-	Image jujuImg=GameUtil.getImage("images/juju.png");
-	Shell juju=new Shell(jujuImg,220,650,20);
+
 	
 	
 	public void paint(Graphics g) {
 		g.drawImage(backImg,0,0,null);
 //		g.drawImage(planeImg,300,350,null);
-		//plane.drawSelf(g);
-		juju.draw(g);
-	//	for(int i=0;i<shell.length;i++){
-//			shell[i].draw(g);
-//		}
-//		
-//	
-//		
+		plane.drawSelf(g);
+
+		for(int i=0;i<shell.length;i++){
+			shell[i].draw(g);
+		}
+	
+	
+		
 }
 	
 	class PaintThread extends Thread{
@@ -65,9 +64,9 @@ public class FirstGameTest extends JFrame{
 		//this.addWinodwListener
 		this.setVisible(true);
 		
-//		for(int i=0;i<shell.length;i++) {
-//			shell[i]=new Shell();
-//		}
+		for(int i=0;i<shell.length;i++) {
+				shell[i]=new Shell();
+			}
 		
 		new PaintThread().start();			//启动重画窗口的线程
 		addKeyListener(new KeyMonitor());	//键盘监听

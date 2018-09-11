@@ -9,7 +9,7 @@ public class Plane extends GamePlane{
 	
 	
 	public void drawSelf(Graphics g) {
-		//g.drawImage(img, (int)x, (int)y, null);
+		g.drawImage(img, (int)x, (int)y, null);
 		if(left) {
 			x-=speed;
 		}
