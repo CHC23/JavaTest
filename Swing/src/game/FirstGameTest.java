@@ -1,8 +1,11 @@
 package game;
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Date;
 
 public class FirstGameTest extends JFrame{
 	
@@ -10,20 +13,42 @@ public class FirstGameTest extends JFrame{
 	Image planeImg=GameUtil.getImage("images/2.png");
 	Plane plane=new Plane(planeImg,220,650,20);
 	Shell[] shell=new Shell[20];
-	
-
+	Explode beng;
+	Date startTime=new Date();
+	Date endTime;
+	int gameTime;
 	
 	
 	public void paint(Graphics g) {
+		Color c=g.getColor();
+		
 		g.drawImage(backImg,0,0,null);
 //		g.drawImage(planeImg,300,350,null);
 		plane.drawSelf(g);
 
 		for(int i=0;i<shell.length;i++){
 			shell[i].draw(g);
+			if(shell[i].getRect().intersects(plane.getRect())) {
+				plane.live=false;
+				
+				if(beng==null) {
+					beng=new Explode(plane.x,plane.y);
+					
+					endTime=new Date();
+					gameTime=(int)((endTime.getTime()-startTime.getTime())/1000);
+				}
+				beng.draw(g);
+			}
+			if(!plane.live) {
+				g.setColor(Color.black);
+//				Font f=new Font("宋体",Font.BOLD,10);
+//				g.setFont(f);
+				g.drawString("存活时间："+gameTime+"秒", 200, 100);
+			
+			}
+			
 		}
-	
-	
+		g.setColor(c);
 		
 }
 	

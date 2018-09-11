@@ -14,7 +14,7 @@ public class Shell extends GamePlane{
 		y=350;
 		width=10;
 		height=10;
-		speed=10;
+		speed=2;
 		
 		degree=Math.random()*Math.PI*2;
 	}
