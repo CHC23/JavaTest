@@ -35,7 +35,7 @@ public class EncapsulationTest{
 	public static void main(String[] args){
 		Encapsulation encapsulation=new Encapsulation();
 		
-		encapsulation.setName("³Â»À²Ê");
+		encapsulation.setName("°¬Ë¹°ÂÌØÂü");
 		encapsulation.setAge(21);
 		encapsulation.setId("100001");
 		
