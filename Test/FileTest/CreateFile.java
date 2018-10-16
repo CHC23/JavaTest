@@ -7,7 +7,7 @@ public class CreateFile{
 		//绝对路径
 		File f1=new File("d:/chc");
 		System.out.println("f1的绝对路径："+f1.getAbsolutePath());	
-		//相对路径
+		//相对路径,相对于工作目录，如果在eclipse中，就是项目目录
 		File f2=new File("/hello.txt");
 		System.out.println("f2的绝对路径："+f2.getAbsolutePath());
 		//f1作为父目录创建文件对象
