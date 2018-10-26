@@ -79,7 +79,7 @@ public class ILoveYou{
 		return -1==letterOrDigital.indexOf(c)?false:true;
 	}
 	
-	public static void main(String[] args){
+	public static void main(String[] *-args){
 		File encodingFile=new File("D:/chc/test3.txt");
 		File encodedFile=new File("D:/chc/test2.txt");
 		encodeFile(encodingFile,encodedFile);
