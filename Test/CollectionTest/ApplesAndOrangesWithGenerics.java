@@ -16,7 +16,7 @@ class Orange{}
 
 
 public class ApplesAndOrangesWithGenerics{
-	@SuppressWarnings("不受检查的异常")
+	@SuppressWarnings("unchecked")
 	public  static void  main(String[] args){
 		ArrayList<Apple> apples=new ArrayList<Apple>();
 		for(int i=0;i<3;i++){
