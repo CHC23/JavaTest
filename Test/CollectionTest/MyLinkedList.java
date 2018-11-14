@@ -91,7 +91,7 @@ public class MyLinkedList{
 			
 			newNode.next=temp;
 			temp.previous=newNode;
-			
+			//lllllllllllllllllll
 			size++;
 		}
 	}
