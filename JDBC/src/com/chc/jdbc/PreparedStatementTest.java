@@ -16,12 +16,14 @@ import java.sql.SQLException;
 
 public class PreparedStatementTest {
 	public static void main(String[] args) {
+		Connection con=null;
+		PreparedStatement ps=null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "12zx13zc");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "12zx13zc");
 			
 			String sql="insert into nbaplayer (name,age,position) values (?,?,?)";		//?：占位符
-			PreparedStatement ps=con.prepareStatement(sql);
+			ps=con.prepareStatement(sql);
 			
 			//参数索引从1开始的
 //			ps.setString(1,"保罗");
@@ -39,6 +41,23 @@ public class PreparedStatementTest {
 			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			if(ps!=null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+	
+					e.printStackTrace();
+				}
+			}
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }
