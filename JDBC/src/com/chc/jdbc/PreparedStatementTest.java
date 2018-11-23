@@ -26,9 +26,9 @@ public class PreparedStatementTest {
 			ps=con.prepareStatement(sql);
 			
 			//参数索引从1开始的
-//			ps.setString(1,"保罗");
-//			ps.setString(2, "34");
-//			ps.setString(3, "控卫");
+			ps.setString(1,"保罗");
+			ps.setString(2, "34");
+			ps.setString(3, "控卫");
 			
 			
 			//直接使用Object，不关心具体类型
@@ -54,7 +54,7 @@ public class PreparedStatementTest {
 				try {
 					con.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}

@@ -1,5 +1,7 @@
 package com.chc.jdbc;
 
+//测试ResultSet()方法
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,14 +18,15 @@ public class ResultSetTest {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	
 			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "12zx13zc");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
+					"root", "12zx13zc");
 			
 			String sql="select * from nbaplayer where id>?";
 			ps=con.prepareStatement(sql);
-			ps.setObject(1, 3);				//取出ID>3的记录
+			ps.setObject(1, 3);						//取出ID>3的记录
 			
-			rs=ps.executeQuery();			//返回一个结果集
-			while(rs.next()) {				//next():判断记录下一条是否为空的游标
+			rs=ps.executeQuery();					//返回一个结果集
+			while(rs.next()) {						 //next():判断记录下一条是否为空的游标
 				System.out.println(rs.getInt(1)+"+++"+rs.getString(2)+"+++"+rs.getInt(3)+"+++"+rs.getString(4));
 			}
 		} catch (ClassNotFoundException e) {
@@ -35,7 +38,7 @@ public class ResultSetTest {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+	
 					e.printStackTrace();
 				}
 			}
