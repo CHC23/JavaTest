@@ -16,7 +16,7 @@ public class ConnectJDBCTest {
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "12zx13zc");
 			long end=System.currentTimeMillis();
 			System.out.println(con );
-			System.out.println("建立连接耗时："+(end-start)+"毫秒");
+			System.out.println("数据库连接成功，建立连接耗时："+(end-start)+"毫秒");
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
