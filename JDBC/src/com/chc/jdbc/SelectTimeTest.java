@@ -31,12 +31,7 @@ public class SelectTimeTest {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			//加载驱动类
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	
-			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
-					"root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			
 			ps=con.prepareStatement("select * from nbaplayer where loginTime>? and loginTime<? order by loginTime");
 			
@@ -49,33 +44,10 @@ public class SelectTimeTest {
 				System.out.println(rs.getInt("id")+"  "+rs.getString("name")+"  "+rs.getString("position")+"  "+rs.getTimestamp("loginTime"));
 			}
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {									//关闭数据库连接，遵循先开后闭原则。
-			if(rs!=null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(ps!=null) {
-				try {
-					ps.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
+		JDBCTools.close(con, ps, rs);
 		}
 	}
 		

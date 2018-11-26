@@ -19,12 +19,7 @@ public class TransactionTest {
 		PreparedStatement ps2=null;
 		ResultSet rs=null;
 		try {
-			//加载驱动类
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	
-			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
-					"root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			con.setAutoCommit(false);			//默认是true，自动提交事务，这里改为手动提交
 			
 			ps1=con.prepareStatement("insert into nbaplayer (name,age,position) values (?,?,?)");
@@ -47,45 +42,15 @@ public class TransactionTest {
 			System.out.println("事务二操作成功");
 			
 			con.commit();			//手动提交事务
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch(SQLException e) {
 			try {
 				con.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}					//事务二提交失败，到这里会回滚到所有的事务未提交的状态
-		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {									//关闭数据库连接，遵循先开后闭原则。
-			if(rs!=null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(ps1!=null) {
-				try {
-					ps1.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(ps2!=null) {
-				try {
-					ps2.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			JDBCTools.close(con, rs);
 		}
 	}
 

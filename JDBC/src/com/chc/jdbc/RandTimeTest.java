@@ -17,12 +17,7 @@ public class RandTimeTest {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			//加载驱动类
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	
-			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
-					"root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			
 			for(int i=0;i<1000;i++) {
 				String sql="insert into nbaplayer (name,age,position,loginTime) values (?,?,?,?)";
@@ -40,33 +35,10 @@ public class RandTimeTest {
 			System.out.println("插入成功");	
 			
 			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {									//关闭数据库连接，遵循先开后闭原则。
-			if(rs!=null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(ps!=null) {
-				try {
-					ps.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			JDBCTools.close(con, ps, rs);
 		}
 	}
 }

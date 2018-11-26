@@ -14,12 +14,7 @@ public class ResultSetTest {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			//加载驱动类
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	
-			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
-					"root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			
 			String sql="select * from nbaplayer where id>?";
 			ps=con.prepareStatement(sql);
@@ -29,33 +24,10 @@ public class ResultSetTest {
 			while(rs.next()) {						 //next():判断记录下一条是否为空的游标
 				System.out.println(rs.getInt(1)+"+++"+rs.getString(2)+"+++"+rs.getInt(3)+"+++"+rs.getString(4));
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {									//关闭数据库连接，遵循先开后闭原则。
-			if(rs!=null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(ps!=null) {
-				try {
-					ps.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			JDBCTools.close(con, ps, rs);
 		}
 	}
 

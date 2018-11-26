@@ -19,8 +19,7 @@ public class PreparedStatementTest {
 		Connection con=null;
 		PreparedStatement ps=null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", "root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			
 			String sql="insert into nbaplayer (name,age,position) values (?,?,?)";		//?£ºÕ¼Î»·û
 			ps=con.prepareStatement(sql);
@@ -37,27 +36,10 @@ public class PreparedStatementTest {
 			ps.setObject(3,"ÖÐ·æ");
 		
 			ps.execute();
-		}catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			if(ps!=null) {
-				try {
-					ps.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-
-					e.printStackTrace();
-				}
-			}
+			JDBCTools.close(con, ps);
 		}
 	}
 }

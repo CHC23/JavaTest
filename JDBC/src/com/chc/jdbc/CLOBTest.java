@@ -22,12 +22,7 @@ public class CLOBTest {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		try {
-			//加载驱动类
-			Class.forName("com.mysql.cj.jdbc.Driver");
-	
-			//建立连接
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javatest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT", 
-					"root", "12zx13zc");
+			con=JDBCTools.getMySqlConnection();
 			
 //			ps=con.prepareStatement("insert into nbaplayer (name,age,info) values (?,?,?)");
 //			ps.setObject(1,"科比");
@@ -50,34 +45,10 @@ public class CLOBTest {
 					System.out.print((char)temp);
 				}
 			}
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}finally {									//关闭数据库连接，遵循先开后闭原则。
-			if(rs!=null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-	
-					e.printStackTrace();
-				}
-			}
-			if(ps!=null) {
-				try {
-					ps.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if(con!=null) {
-				try {
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			JDBCTools.close(con,ps,rs);
 		}
 	}
 
