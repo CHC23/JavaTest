@@ -1,6 +1,5 @@
 package com.chc.jdbc;
 
-
 /**
  * CLob大文本对象存入数据库测试
  * 
