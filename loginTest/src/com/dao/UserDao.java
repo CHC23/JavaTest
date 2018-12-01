@@ -4,7 +4,7 @@ package com.dao;
 import com.entity.User;
 import java.util.List;
 
-public class UserDao{
+public interface UserDao{
 	public boolean login(String name,String pwd);	//登陆接口
 	public boolean register(User user);				//注册
 	public List<User> getUserAll();					//返回用户信息集合

@@ -27,7 +27,7 @@ public class User {
 	public String getPwd() {
 		return pwd;
 	}
-	public void setPwd(String Pwd) {
+	public void setPwd(String pwd) {
 		this.pwd=pwd;
 	}
 	

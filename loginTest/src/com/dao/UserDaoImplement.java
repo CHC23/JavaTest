@@ -12,7 +12,8 @@ public class UserDaoImplement implements UserDao{
 	
 	
 	public boolean login(String name,String pwd) {
-		boolean flag;
+		//用户登录
+		boolean flag=false;
 		try {
 			DBConn.init();
 			ResultSet rs=DBConn.sqlSelest("select * from user where name='+name+' and pwd='+pwd+'");
@@ -30,7 +31,9 @@ public class UserDaoImplement implements UserDao{
 	}
 	
 	public boolean register(User user) {
-		boolean flag;
+		//用户注册
+		@SuppressWarnings("unused")
+		boolean flag=false;
 		DBConn.init();
 		int i=DBConn.addUpdDel("insert into user(name,pwd,sex,home,info) values ('"+user.getName()+"','"+user.getPwd()
 										+"','"+user.getSex()+"','"+user.getHome()+"','"+user.getInfo()+"')"  );
@@ -38,11 +41,12 @@ public class UserDaoImplement implements UserDao{
 			flag=true;
 		}
 		DBConn.sqlClose();
-		return flag;
+		return flag=false;
 	}
 	
 	
 	public List<User> getUserAll() {
+		//取得用户信息
 		List<User> list=new ArrayList<User>();
 		try {
 			DBConn.init();
@@ -64,5 +68,34 @@ public class UserDaoImplement implements UserDao{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public boolean delete(int id) {
+		//根据ID删除用户
+		boolean flag=false;
+		DBConn.init();
+		String sql="delete from user where id=";
+		int i=DBConn.addUpdDel(sql);
+		if(i>0) {
+			flag=true;
+		}
+		DBConn.sqlClose();
+		return flag;
+	}
+	
+	public boolean update(int id,String name,String pwd,String sex,String home,String info) {
+		//更新用户信息
+		boolean flag=false;
+		DBConn.init();
+		String sql="update user set name='"+name
+				+"',pwd='"+pwd
+				+"',sex='"+pwd
+				+"',home='"+home
+				+"',info='"+info+"' where id="+id;
+		int i=DBConn.addUpdDel(sql);
+		if(i>0) {
+			flag=true;
+		}
+		return flag;
 	}
 }
