@@ -22,8 +22,8 @@ public class SearchAll extends HttpServlet{
 			throws ServletException, IOException {
 		
 		UserDao ud=new UserDaoImplement();
-		List<User> userall=ud.getUserAll();
-		request.setAttribute("userall", userall);
+		List<User> userAll=ud.getUserAll();
+		request.setAttribute("userAll", userAll);
 		request.getRequestDispatcher("/showall.jsp").forward(request,response);
 	}
 	
