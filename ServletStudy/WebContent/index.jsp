@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	hello world
+	<form action="/ServletStudy/FirstServlet" method="post">
+	<input name="user" type="text" value="chc">
+	<input type="submit" value="http请求">
+	</form>
 </body>
 </html>
