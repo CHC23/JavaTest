@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>用户登录</title>
+<title>http请求</title>
 </head>
 <body>
 	<form action="/ServletStudy/ServletTest1" method="post">
 	用户名：<input name="user" type="text" ><br>
 	密      码 ：<input name="pwd" type="password"><br>
-	<input type="submit" value="http请求">
+	<input type="submit" value="查询提交" >
 	</form>
 </body>
 </html>

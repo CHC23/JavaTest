@@ -12,4 +12,26 @@
   			<servlet-name>ServletTest1</servlet-name>
   			<url-pattern>/ServletTest1</url-pattern>
   		</servlet-mapping>
+  		
+  		
+  		  	
+  		<servlet>
+  			<servlet-name>LoginServlet</servlet-name>
+  			<servlet-class>com.chc.servlet.LoginServlet</servlet-class>
+  		</servlet>
+  		<servlet-mapping>
+  			<servlet-name>LoginServlet</servlet-name>
+  			<url-pattern>/LoginServlet</url-pattern>
+  		</servlet-mapping>
+  		
+  		<context-param>
+  			<param-name>username</param-name>
+  			<param-value>chc</param-value>
+  		</context-param>
+  		
+  		<context-param>
+  			<param-name>password</param-name>
+  			<param-value>123456</param-value>
+  		</context-param>
+  		
 </web-app>

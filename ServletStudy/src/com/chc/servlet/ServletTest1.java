@@ -36,8 +36,15 @@ public class ServletTest1 implements Servlet{
 
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("user"));
-		System.out.println(request.getParameter("pwd"));
+//		System.out.println(request.getParameter("user"));
+//		System.out.println(request.getParameter("pwd"));
+		String user=request.getParameter("user");
+		String pwd=request.getParameter("pwd");
+		if(user.equals("chc")&&pwd.equals("123456")) {
+			response.getWriter().println("success");
+		}else {
+			response.getWriter().println("faild");
+		}
 	}
 
 }
