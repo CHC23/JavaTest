@@ -5,19 +5,11 @@
 		id="WebApp_ID" version="3.1">
   
   		<servlet>
-  			<servlet-name>FirstServlet</servlet-name>
-  			<servlet-class>com.chc.servlet.FirstServlet</servlet-class>
-  			<init-param>
-  				<param-name>user</param-name>
-  				<param-value>chc</param-value>
-  			</init-param>
-  			<init-param>
-  				<param-name>pwd</param-name>
-  				<param-value>12zx13zc</param-value>
-  			</init-param>
+  			<servlet-name>ServletTest1</servlet-name>
+  			<servlet-class>com.chc.servlet.ServletTest1</servlet-class>
   		</servlet>
   		<servlet-mapping>
-  			<servlet-name>FirstServlet</servlet-name>
-  			<url-pattern>/FirstServlet</url-pattern>
+  			<servlet-name>ServletTest1</servlet-name>
+  			<url-pattern>/ServletTest1</url-pattern>
   		</servlet-mapping>
 </web-app>
