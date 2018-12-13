@@ -42,12 +42,13 @@ public class LoginServlet extends MyHttpServlet{
 		String user2=getServletConfig().getServletContext().getInitParameter("username");
 		
 //		System.out.println(user2);
+		hresponse.setContentType("text/html;charset=UTF-8");			//ÖĞÎÄÂÒÂëÎÊÌâ
 		if(user1.equals(getServletConfig().getServletContext().getInitParameter("username")) 
 				&& pwd1.equals(getServletConfig().getServletContext().getInitParameter("password"))){
 			
-			hresponse.getWriter().println("hello word");
+			hresponse.getWriter().println("»¶Ó­");
 		}else {
-			hresponse.getWriter().println("you are failed");
+			hresponse.getWriter().println("µÇÂ¼Ê§°Ü");
 		}
 	}
 
