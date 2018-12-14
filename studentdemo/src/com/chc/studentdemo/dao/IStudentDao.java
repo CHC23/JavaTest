@@ -6,4 +6,6 @@ public interface IStudentDao {
 
 	Student selectStudentLogin(String number, String password);
 
+	void insertStudent(Student student);
+
 }

@@ -19,7 +19,7 @@ public class Student implements Serializable {
 		//无参构造器
 		super();
 	}
-	public Student(String number,String name,int age,double score,String sex ) {
+	public Student(String number,String password,String name,int age,double score,String sex ) {
 		//带参构造器
 		super();
 		this.number=number;
