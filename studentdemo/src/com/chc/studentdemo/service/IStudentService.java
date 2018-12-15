@@ -8,7 +8,7 @@ public interface IStudentService {
 	Student checkStudent(String number, String password);
 	
 	//数据写入数据库
-	void saveStudent(Student student);
+	Integer saveStudent(Student student);
 
 	
 

@@ -17,6 +17,7 @@ public class RegisterServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		//获取表单参数
 		String number=request.getParameter("number");
 		String password=request.getParameter("password");
@@ -25,11 +26,9 @@ public class RegisterServlet extends HttpServlet {
 		String scoreStr=request.getParameter("score");
 		String sex=request.getParameter("sex");
 		
+		Integer age = Integer.valueOf(ageStr);
+		Double score = Double.valueOf(scoreStr);
 		
-		String ag = ageStr;
-		Integer age=Integer.valueOf(ag);
-		String sc = scoreStr;
-		Double score=Double.valueOf(sc);
 		if(number==null||"".equals(number.trim())) {
 			//session.setAttribute("message","学号输入错误");
 			//表单为空或者未通过表单进入，使用请求转发,当恶意刷新时会占用资源， 因此使用重定向,
@@ -49,15 +48,14 @@ public class RegisterServlet extends HttpServlet {
 		IStudentService service=new StudentServiceImpl();
 		
 		//调用service对象的saveStudent()将对象写入数据库
-		service.saveStudent(student);
-		//写入失败跳转注册页，重新注册
-		
+		Integer id=service.saveStudent(student);
+		//写入失败跳转注册页，重新注册,当数据库中的id为空时，数据没有写入数据库
+		if(id==null) {
+			response.sendRedirect(request.getContextPath() + "/register.jsp");
+		}
 		//写入成功后跳转登录页
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	}
 
-	private int toInt(String parameter) {
-		return 0;
-	}
 
 }

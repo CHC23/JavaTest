@@ -54,7 +54,8 @@ public class StudentDaoImpl implements IStudentDao {
 
 
 	@Override
-	public void insertStudent(Student student) {
+	public Integer insertStudent(Student student) {
+		Integer id=null;
 		try {
 			conn=JdbcUtils.getMySqlConnection();
 			String sql="insert into student(number,password,name,age,score,sex) values(?,?,?,?,?,?)";
@@ -67,6 +68,13 @@ public class StudentDaoImpl implements IStudentDao {
 			ps.setString(6, student.getSex());
 			
 			ps.executeUpdate();
+			
+			sql="seclect @@identity SId";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				id=rs.getInt("SId");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -76,6 +84,7 @@ public class StudentDaoImpl implements IStudentDao {
 				e.printStackTrace();
 			}
 		}
+		return id;
 	}
 
 }

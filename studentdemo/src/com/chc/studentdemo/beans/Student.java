@@ -11,15 +11,15 @@ public class Student implements Serializable {
 	private String password;	//登录密码
 	private String number;		//学号
 	private String name;		//姓名
-	private int age;			//年龄
-	private double score;		//成绩
+	private Integer age;			//年龄
+	private Double score;		//成绩
 	private String sex;
 	
 	public Student() {
 		//无参构造器
 		super();
 	}
-	public Student(String number,String password,String name,int age,double score,String sex ) {
+	public Student(String number,String password,String name,Integer age,Double score,String sex ) {
 		//带参构造器
 		super();
 		this.number=number;
