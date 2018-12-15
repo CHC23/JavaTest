@@ -52,6 +52,7 @@ public class RegisterServlet extends HttpServlet {
 		//写入失败跳转注册页，重新注册,当数据库中的id为空时，数据没有写入数据库
 		if(id==null) {
 			response.sendRedirect(request.getContextPath() + "/register.jsp");
+			return;
 		}
 		//写入成功后跳转登录页
 		response.sendRedirect(request.getContextPath() + "/login.jsp");

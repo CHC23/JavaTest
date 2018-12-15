@@ -69,7 +69,7 @@ public class StudentDaoImpl implements IStudentDao {
 			
 			ps.executeUpdate();
 			
-			sql="seclect @@identity SId";
+			sql="select @@identity SId";
 			ps=conn.prepareStatement(sql);
 			rs=ps.executeQuery();
 			if(rs.next()) {
