@@ -10,14 +10,20 @@
 </head>
 <body>
 	<table border="1" width="1000">
+		<tr>
+			<td colspan="8">
+				<a href="addStudent.jsp">添加学生</a>
+			</td>
+		</tr>
+	
 		<tr align="center">
 			<td>编号</td>
 			<td>姓名</td>
 			<td>性别</td>
-			<td>生日</td>
+			<td>电话</td>
+			<td>年龄</td>
 			<td>爱好</td>
 			<td>信息</td>
-			<td>联系方式</td>
 			<td>操作</td>
 		</tr>
 		
@@ -26,10 +32,10 @@
 			<td>${ student.id}</td>
 			<td>${ student.sname}</td>
 			<td>${ student.sex}</td>
-			<td>${ student.birthday}</td>
+			<td>${ student.phone}</td>
+			<td>${ student.age}</td>
 			<td>${ student.hobby}</td>
 			<td>${ student.info}</td>
-			<td>${ student.phone}</td>
 			<td><a href="#">更新</a> <a href="#">删除</a></td>
 		</tr>
 		</c:forEach>

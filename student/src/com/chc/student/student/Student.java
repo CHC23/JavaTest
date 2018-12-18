@@ -3,14 +3,14 @@ package com.chc.student.student;
 /*
  * 封装学生对象的bean
  */
-import java.util.Date;
+
 
 public class Student {
 	private int id;
 	private String sname;
 	private String sex;
 	private String phone;
-	private Date birthday;
+	private Integer age;
 	private String hobby;
 	private String info;
 	
@@ -21,14 +21,13 @@ public class Student {
 		super();
 	}
 	
-	public Student(int id, String sname, String sex, String phone, Date birthday, String hobby, String info) {
+	public Student(String sname, String sex, String phone, Integer age, String hobby, String info) {
 		//有参构造器
 		super();
-		this.id = id;
 		this.sname = sname;
 		this.sex = sex;
 		this.phone = phone;
-		this.birthday = birthday;
+		this.age = age;
 		this.hobby = hobby;
 		this.info = info;
 	}
@@ -56,11 +55,11 @@ public class Student {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getBirthday() {
-		return birthday;
+	public	int getAge() {
+		return age;
 	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 	public String getHobby() {
 		return hobby;

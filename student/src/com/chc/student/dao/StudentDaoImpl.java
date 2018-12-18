@@ -1,5 +1,6 @@
 package com.chc.student.dao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,28 +20,61 @@ public class StudentDaoImpl implements StudentDao {
 	private  ResultSet rs;
 
 	@Override
-	public List<Student> selectAll() throws SQLException {
+	public List<Student> selectAll() throws SQLException{
 		Student student=null;
 
 		List<Student> list=new ArrayList<Student>();
 		conn=JdbcUtils.getMySqlConnection();
 		String sql="select * from stu";
-		ps=conn.prepareStatement(sql);
-		rs=ps.executeQuery();
-		if(rs.next()) {
-			student=new Student();
-			student.setId(rs.getInt("id"));
-			student.setSname(rs.getString("sname"));
-			student.setSex(rs.getString("sex"));
-			student.setBirthday(rs.getDate("birthday"));
-			student.setPhone(rs.getString("phone"));
-			student.setHobby(rs.getString("hobby"));
-			student.setInfo(rs.getString("info"));
-			list.add(student);
+		try {
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				student=new Student();
+				student.setId(rs.getInt("id"));
+				student.setSname(rs.getString("sname"));
+				student.setSex(rs.getString("sex"));
+				student.setAge(rs.getInt("age"));
+				student.setPhone(rs.getString("phone"));
+				student.setHobby(rs.getString("hobby"));
+				student.setInfo(rs.getString("info"));
+				list.add(student);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtils.close(conn, ps, rs);
+			
 		}
 		
 		
 		return list;
+	
 	}
+	
+	public void insertStudent(Student student) throws SQLException{
+		conn=JdbcUtils.getMySqlConnection();
+		String sql="insert into stu(sname,sex,phone,age,hobby,info) values(?,?,?,?,?,?)";
+		try {
+			ps=conn.prepareStatement(sql);
+			ps.setString(1,student.getSname());
+			ps.setString(2,student.getSex());
+			ps.setString(3,student.getPhone());
+			ps.setInt(4,student.getAge());
+			ps.setString(5,student.getHobby());
+			ps.setString(6,student.getInfo());
+		
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtils.close(conn, ps, rs);
+		}
+		
+			
+	}
+		
+	
 
 }

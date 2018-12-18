@@ -15,4 +15,11 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 		StudentDao dao=new StudentDaoImpl();
 		return dao.selectAll();
 	}
+
+	@Override
+	public void insertStudent(Student student) throws SQLException {
+		StudentDao dao=new StudentDaoImpl();
+		dao.insertStudent(student);
+	}
+	
 }

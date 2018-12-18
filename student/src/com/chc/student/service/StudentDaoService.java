@@ -9,4 +9,7 @@ import com.chc.student.student.Student;
 
 public interface StudentDaoService {
 	List<Student> selectAll() throws SQLException;
+	
+	//≤Â»Î—ß…˙
+	void insertStudent(Student student) throws SQLException;
 }

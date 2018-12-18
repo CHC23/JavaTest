@@ -10,5 +10,9 @@ import com.chc.student.student.Student;
  */
 public interface StudentDao {
 	
-	List<Student> selectAll()  throws SQLException ;
+	//查询学生信息
+	List<Student> selectAll() throws SQLException;
+	
+	//插入学生
+	void insertStudent(Student student) throws SQLException;
 }

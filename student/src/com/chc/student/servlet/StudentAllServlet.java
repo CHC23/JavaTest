@@ -27,6 +27,10 @@ public class StudentAllServlet extends HttpServlet {
 		try {
 			StudentDaoService service=new StuedntDaoServiceImpl();
 			List<Student> list=service.selectAll();
+//			for(int i=0;i<list.size();i++) {
+//				Student student=list.get(i);
+//				System.out.println(student.getSname());
+//			}
 			//Êý¾Ý´æÈëÓò
 			request.setAttribute("allStudent",list);
 			
