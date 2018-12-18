@@ -18,7 +18,7 @@
 			<input type="text" name="age" id="input" class="form-control"  placeholder="请输入年龄" required>
 			<input type="text" name="score" id="input" class="form-control"  placeholder="请输入成绩" required>
 			<input type="text" name="sex" id="input" class="form-control"  placeholder="请输入性别" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">完成注册</button>
+			<button class="btn btn-lg btn-success btn-block" type="submit" id="submit">完成注册</button>
 		</form>
 	</div>
 </body>

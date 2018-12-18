@@ -15,7 +15,7 @@
 			<h2>登录</h2>
 			<input type="text" name="number" id="input" class="form-control"  placeholder="用户名" required/>
 			<input type="password" name="password" id="input" class="form-control" placeholder="密码" required/>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">登录</button>
+			<button class="btn btn-lg btn-success btn-block" type="submit" id="submit">登录</button>
 		</form>
 		<a class="visitor" href="${pageContext.request.contextPath }/toRegisterServlet">注册</a>
 	</div>

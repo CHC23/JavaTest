@@ -1,0 +1,18 @@
+package com.chc.student.service;
+/*
+ * 学生类的业务实现
+ */
+import java.sql.SQLException;
+import java.util.List;
+
+import com.chc.student.dao.StudentDao;
+import com.chc.student.dao.StudentDaoImpl;
+import com.chc.student.student.Student;
+
+public class StuedntDaoServiceImpl implements StudentDaoService {
+	
+	public List<Student> selectAll() throws SQLException{
+		StudentDao dao=new StudentDaoImpl();
+		return dao.selectAll();
+	}
+}
