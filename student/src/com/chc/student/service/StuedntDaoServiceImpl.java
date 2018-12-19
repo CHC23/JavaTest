@@ -21,5 +21,13 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 		StudentDao dao=new StudentDaoImpl();
 		dao.insertStudent(student);
 	}
+
+	@Override
+	public Student checkLogin(String number, String password) {
+		StudentDao dao=new StudentDaoImpl();
+		return dao.selectLogin(number, password);
+	}
+	
+	
 	
 }

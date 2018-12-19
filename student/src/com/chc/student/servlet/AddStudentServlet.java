@@ -23,6 +23,8 @@ public class AddStudentServlet extends HttpServlet {
 				try {
 				//获取表单数据
 					String sname=request.getParameter("sname");
+					String number=request.getParameter("number");
+					String password=request.getParameter("password");
 					String sex=request.getParameter("sex");
 					String sage=request.getParameter("age");
 					String phone=request.getParameter("phone");
@@ -32,12 +34,12 @@ public class AddStudentServlet extends HttpServlet {
 					//数据入库
 					Integer age = Integer.valueOf(sage);
 					
-					Student student=new Student(sname,sex,phone,age,hobby,info);
+					Student student=new Student(sname,number,password,sex,phone,age,hobby,info);
 					StudentDaoService service=new StuedntDaoServiceImpl();
 					service.insertStudent(student);
 					
-					//跳转
-					
+					//插入成功， 重定向到show.jsp
+					response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
 					
 				
 				} catch (Exception e) {

@@ -8,10 +8,12 @@ package com.chc.student.student;
 public class Student {
 	private int id;
 	private String sname;
+	private String number;
+	private String password;
 	private String sex;
 	private String phone;
 	private Integer age;
-	private String hobby;
+	private String sclass;
 	private String info;
 	
 	
@@ -21,16 +23,19 @@ public class Student {
 		super();
 	}
 	
-	public Student(String sname, String sex, String phone, Integer age, String hobby, String info) {
+	public Student(String sname, String number,String password,String sex, String phone, Integer age, String sclass, String info) {
 		//有参构造器
 		super();
 		this.sname = sname;
+		this.number=number;
+		this.password=password;
 		this.sex = sex;
 		this.phone = phone;
 		this.age = age;
-		this.hobby = hobby;
+		this.sclass = sclass;
 		this.info = info;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -42,6 +47,19 @@ public class Student {
 	}
 	public void setSname(String sname) {
 		this.sname = sname;
+	}
+	
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number=number;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password=password;
 	}
 	public String getSex() {
 		return sex;
@@ -61,11 +79,11 @@ public class Student {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public String getHobby() {
-		return hobby;
+	public String getSclass() {
+		return sclass;
 	}
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
+	public void setSclass(String sclass) {
+		this.sclass = sclass;
 	}
 	public String getInfo() {
 		return info;

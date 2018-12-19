@@ -14,33 +14,38 @@ import com.chc.student.service.StudentDaoService;
 import com.chc.student.service.StuedntDaoServiceImpl;
 import com.chc.student.student.Student;
 
-/**
- * 查询所有学生信息，
- */
-@WebServlet("/StudentAllServlet")
-public class StudentAllServlet extends HttpServlet {
+@WebServlet("/StudentLoginServlet")
+public class StudentLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		try {
+			//获取表单数据
+			String number=request.getParameter("number");
+			String password=request.getParameter("password");
+//			System.out.println(number+":"+password);
+			//用户验证,表单数据与数据库中的匹配,匹配失败则重定向登录页面
 			StudentDaoService service=new StuedntDaoServiceImpl();
-			List<Student> list=service.selectAll();
-//			for(int i=0;i<list.size();i++) {
-//				Student student=list.get(i);
-//				System.out.println(student.getSname());
-//			}
-			//数据存入域
-			request.setAttribute("allStudent",list);
 			
-			request.getRequestDispatcher("show.jsp").forward(request, response);
+			Student student=service.checkLogin(number,password);
+			if(student==null) {
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
+//				System.out.println("gg");
+				return;
+			}
+			//匹配成功则登入
 			
-		} catch (SQLException e) {
+			response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
+			return;
+			
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
