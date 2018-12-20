@@ -20,5 +20,9 @@ public interface StudentDao {
 	//登录匹配
 	Student selectLogin(String number, String password);
 	
+	//取出学生信息到编辑页
+	Student editStudent(int id) throws SQLException;
 	
+	//更新学生信息到数据库
+	void updateStudent(Student student) throws SQLException;
 }

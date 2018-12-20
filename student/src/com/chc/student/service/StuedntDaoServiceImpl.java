@@ -27,6 +27,18 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 		StudentDao dao=new StudentDaoImpl();
 		return dao.selectLogin(number, password);
 	}
+
+	public Student editStudent(int id) throws SQLException {
+		StudentDao dao=new StudentDaoImpl();
+		return dao.editStudent(id);
+	}
+
+	@Override
+	public void updateStudent(Student student) throws SQLException {
+		StudentDao dao=new StudentDaoImpl();
+		dao.updateStudent(student);
+		
+	}
 	
 	
 	

@@ -36,6 +36,19 @@ public class Student {
 		this.info = info;
 	}
 	
+	public Student(String sname, String number,String sex, String phone, Integer age, String sclass, String info) {
+		//有参构造器
+		//更新学生信息，不需要更新密码
+		super();
+		this.sname = sname;
+		this.number=number;
+		this.sex = sex;
+		this.phone = phone;
+		this.age = age;
+		this.sclass = sclass;
+		this.info = info;
+	}
+	
 	public int getId() {
 		return id;
 	}

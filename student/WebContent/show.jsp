@@ -6,19 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>学生信息</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link  rel="stylesheet" href="css/show.css" />
 </head>
 <body>
 	<div class="container">
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-condensed">
 			<tr>
 				<td colspan="9">
 					<a href="addStudent.jsp">添加学生</a>
 				</td>
 			</tr>
-		
+			<h2>学生信息表</h2>
 			<tr align="center">
 				<td>编号</td>
 				<td>姓名</td>
@@ -42,8 +42,8 @@
 				<td>${ student.sclass}</td>
 				<td>${ student.info}</td>
 				<td>
-					<button class="btn btn-success">编辑</a></button>
-					<button class="btn btn-danger">删除</a></button>
+					<button class="btn btn-success btn-xs"><a href="/student/EditStudentServlet?id=${student.id }">编辑</a></button>
+					<button class="btn btn-danger btn-xs">删除</a></button>
 				</td>
 			</tr>
 			</c:forEach>

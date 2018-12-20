@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/student/AddStudentServlet" method="GET">
+	<form action="${EditStudentServlet }" method="GET">
 		姓名：<input type="text" name="sname"><br><br>
 		学号：<input type="text" name="number"><br><br>
 		密码：<input type="text" name="password"><br><br>
