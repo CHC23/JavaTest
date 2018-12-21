@@ -20,25 +20,27 @@ public class UpdateStudentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 		try {
 			//获取表单数据
+				int id=Integer.parseInt(request.getParameter("id"));
 				String sname=request.getParameter("sname");
 				String number=request.getParameter("number");
 				String sex=request.getParameter("sex");
 				String sage=request.getParameter("age");
 				String phone=request.getParameter("phone");
-				String hobby=request.getParameter("hobby");
+				String sclass=request.getParameter("sclass");
 				String info=request.getParameter("info");
 				Integer age = Integer.valueOf(sage);
 				
 				
 				//数据入库
-				Student student=new Student(sname,number,sex,phone,age,hobby,info);
+				Student student=new Student(id,sname,number,sex,phone,age,sclass,info);
 				StudentDaoService service=new StuedntDaoServiceImpl();
 				service.updateStudent(student);
 				
 				//插入成功， 重定向到show.jsp
-				response.sendRedirect(request.getContextPath()+"/StudentAllStudent");
+				response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
 				
 			
 			} catch (Exception e) {

@@ -39,6 +39,12 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 		dao.updateStudent(student);
 		
 	}
+
+	@Override
+	public  void deleteStudenet(int id) throws SQLException {
+		StudentDao dao=new StudentDaoImpl();
+		dao.deleteStudent(id);
+	}
 	
 	
 	

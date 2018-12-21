@@ -23,5 +23,8 @@ public interface StudentDaoService {
 
 	//更新学生信息到数据库的service
 	void updateStudent(Student student) throws SQLException;
+
+	//按id删除学生的service
+	void deleteStudenet(int id) throws SQLException;
 	
 }

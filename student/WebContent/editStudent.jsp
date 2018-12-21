@@ -9,10 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/UpdateStudentServlet" method="GET">
+	<form action="UpdateStudentServlet" method="GET">
+		<input type="hidden" name="id" value="${student.id}">
 		姓名：<input type="text" name="sname" value="${student.sname}"><br><br>
 		学号：<input type="text" name="number" value="${student.number}"><br><br>
-		密码：<input type="text" name="password"  value="${student.sname}"><br><br>
+		<!--密码：<input type="text" name="password"  value="${student.sname}"><br><br>-->
 		性别：<input type="radio" name="sex" value="男" <c:if test="${student.sex=='男' }">checked</c:if>>男
 			<input type="radio" name="sex" value="女" <c:if test="${student.sex=='女' }">checked</c:if>>女<br><br>
 		电话：<input type="text" name="phone" value="${student.phone}"><br><br>

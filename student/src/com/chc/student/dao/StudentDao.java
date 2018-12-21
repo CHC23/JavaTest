@@ -25,4 +25,7 @@ public interface StudentDao {
 	
 	//更新学生信息到数据库
 	void updateStudent(Student student) throws SQLException;
+	
+	//删除学生信息
+	void deleteStudent(int id) throws SQLException;
 }

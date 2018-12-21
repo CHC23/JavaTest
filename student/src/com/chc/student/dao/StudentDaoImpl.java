@@ -151,16 +151,17 @@ public class StudentDaoImpl implements StudentDao {
 	public void updateStudent(Student student) throws SQLException {
 		//更新学生信息到数据库的dao实现
 		conn=JdbcUtils.getMySqlConnection();
-		String sql="insert into stu(sname,number,sex,phone,age,sclass,info) values(?,?,?,?,?,?,?)";
+		String sql="update stu set sname=?,number=?,sex=?,phone=?,age=?,sclass=?,info=? where id=?";
 		try {
 			ps=conn.prepareStatement(sql);
 			ps.setString(1,student.getSname());
 			ps.setString(2, student.getNumber());
-			ps.setString(4,student.getSex());
-			ps.setString(5,student.getPhone());
-			ps.setInt(6,student.getAge());
-			ps.setString(7,student.getSclass());
-			ps.setString(8,student.getInfo());
+			ps.setString(3,student.getSex());
+			ps.setString(4,student.getPhone());
+			ps.setInt(5,student.getAge());
+			ps.setString(6,student.getSclass());
+			ps.setString(7,student.getInfo());
+			ps.setInt(8, student.getId());
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -168,6 +169,24 @@ public class StudentDaoImpl implements StudentDao {
 		}finally {
 			JdbcUtils.close(conn, ps, rs);
 		}
+	}
+
+	@Override
+	public void deleteStudent(int id) throws SQLException {
+		// 删除学生信息
+		
+		conn=JdbcUtils.getMySqlConnection();
+		String sql="delete from stu where id=?";
+		
+		try {
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1,id);
+			ps.executeUpdate();
+	
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
 	}
 		
 	

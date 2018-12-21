@@ -1,4 +1,15 @@
+@charset "UTF-8";
+
+
+body{
+	background-color:	#CFCFCF;
+
+}
 .container{
-	width:1200px;
-	height:1000px;
+	background-color:#FFFFFF;
+	position: fixed;
+	height:100%;
+	left:10%;
+	
+	text-align: center;
 }

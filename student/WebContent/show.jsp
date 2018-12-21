@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title>学生信息</title>
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-<link  rel="stylesheet" href="css/show.css" />
+<link rel="stylesheet" href="css/show.css"/>
+
 </head>
 <body>
 	<div class="container">
@@ -42,8 +43,9 @@
 				<td>${ student.sclass}</td>
 				<td>${ student.info}</td>
 				<td>
-					<button class="btn btn-success btn-xs"><a href="/student/EditStudentServlet?id=${student.id }">编辑</a></button>
-					<button class="btn btn-danger btn-xs">删除</a></button>
+	
+					<input class="btn btn-success btn-xs" type="button" value="编辑" onclick="window.location.href='/student/EditStudentServlet?id=${student.id }'">
+					<input class="btn btn-danger btn-xs" type="button" value="删除" onclick="window.location.href='/student/DeleteStudentServlet?id=${student.id }'">
 				</td>
 			</tr>
 			</c:forEach>
