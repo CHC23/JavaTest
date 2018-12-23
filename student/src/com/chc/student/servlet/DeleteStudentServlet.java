@@ -23,6 +23,8 @@ public class DeleteStudentServlet extends HttpServlet {
 		try {
 			//获取id
 			int id= Integer.parseInt(request.getParameter("id"));
+			
+			//根据id删除
 			StudentDaoService service=new StuedntDaoServiceImpl();
 			service.deleteStudenet(id);
 			

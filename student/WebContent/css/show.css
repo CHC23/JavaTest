@@ -8,8 +8,10 @@ body{
 .container{
 	background-color:#FFFFFF;
 	position: fixed;
+	margin:auto;
 	height:100%;
-	left:10%;
+	left:0px;
+	right:0px;
 	
 	text-align: center;
 }

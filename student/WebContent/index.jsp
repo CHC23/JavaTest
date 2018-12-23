@@ -11,6 +11,9 @@
 </head>
 <body>
 	<div class="container">
+	<h2>
+		<a herf="StudentShowPagesServlet?currentPage=1">分页显示</a>
+	</h2>
 		<h3>请登录</h3>
 		<form action="${pageContext.request.contextPath}/StudentLoginServlet" method="GET" class="form-horizontal">			
 					<input type="text" name="number" placeholder="请输入学号" class="form-control" id="input">

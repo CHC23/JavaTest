@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<table class="table table-bordered table-condensed">
+		<table class="table table table-condensed">
 			<tr>
 				<td colspan="9">
 					<a href="addStudent.jsp">添加学生</a>

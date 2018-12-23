@@ -10,8 +10,13 @@ import com.chc.student.student.Student;
  */
 public interface StudentDao {
 	
+	int page_record=10;			//一页显示学生信息条数
+	
+	
+	//查询当前页的学生信息
+	List<Student> selectStudentCurrentPage(int currentPage) throws SQLException;
+	
 	//查询学生信息
-//	List<Student> selectAll(String number, String password) throws SQLException;
 	List<Student> selectAll() throws SQLException;
 	
 	//插入学生
@@ -28,4 +33,7 @@ public interface StudentDao {
 	
 	//删除学生信息
 	void deleteStudent(int id) throws SQLException;
+	
+	//查询数据库数据总数
+	int selectRecordCount() throws SQLException;
 }

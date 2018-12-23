@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.chc.student.dao.StudentDao;
 import com.chc.student.dao.StudentDaoImpl;
+import com.chc.student.student.Page;
 import com.chc.student.student.Student;
 
 public class StuedntDaoServiceImpl implements StudentDaoService {
@@ -41,9 +42,28 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 	}
 
 	@Override
-	public  void deleteStudenet(int id) throws SQLException {
+	public void deleteStudenet(int id) throws SQLException {
 		StudentDao dao=new StudentDaoImpl();
 		dao.deleteStudent(id);
+	}
+
+	@Override
+	public Page selectStudentCurrentPage(int currentPage) throws SQLException {
+		//封装某页的数据
+		
+		
+		Page page=new Page();
+		page.setCurrentPage(currentPage);
+		
+		page.setPageRecord(StudentDao.page_record);
+		
+		StudentDao dao=new StudentDaoImpl();
+		List<Student> list=dao.selectStudentCurrentPage(currentPage);
+		page.setList(list);
+		
+		
+		return null;
+		
 	}
 	
 	
