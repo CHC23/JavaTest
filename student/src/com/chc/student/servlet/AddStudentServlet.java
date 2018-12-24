@@ -39,7 +39,7 @@ public class AddStudentServlet extends HttpServlet {
 					service.insertStudent(student);
 					
 					//插入成功， 重定向到show.jsp
-					response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
+					request.getRequestDispatcher("StudentShowPagesServlet").forward(request,response);
 					
 				
 				} catch (Exception e) {

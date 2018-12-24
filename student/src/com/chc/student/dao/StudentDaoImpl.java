@@ -202,7 +202,7 @@ public class StudentDaoImpl implements StudentDao {
 		try {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, page_record);
-			ps.setInt(2, (page_record-1)*page_record);
+			ps.setInt(2, (currentPage-1)*page_record);
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				student=new Student();
@@ -229,7 +229,7 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public int selectRecordCount() throws SQLException {
 		// 实现查询数据库中学生数据总数
-		Long count=null;
+		int count=0;
 		conn=JdbcUtils.getMySqlConnection();
 		String sql="select * from stu";
 		try {
@@ -245,7 +245,7 @@ public class StudentDaoImpl implements StudentDao {
 		}finally {
 			JdbcUtils.close(conn, ps, rs);
 		}
-		return count.intValue();
+		return count;
 		
 	}
 		

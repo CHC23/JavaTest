@@ -40,7 +40,7 @@ public class UpdateStudentServlet extends HttpServlet {
 				service.updateStudent(student);
 				
 				//插入成功， 重定向到show.jsp
-				response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
+				response.sendRedirect(request.getContextPath()+"/StudentShowPagesServlet?currentPage=1");
 				
 			
 			} catch (Exception e) {

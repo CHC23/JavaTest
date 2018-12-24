@@ -53,16 +53,25 @@ public class StuedntDaoServiceImpl implements StudentDaoService {
 		
 		
 		Page page=new Page();
+		//获取当前页
 		page.setCurrentPage(currentPage);
 		
+		//获取当前页学生信息记录数量
 		page.setPageRecord(StudentDao.page_record);
 		
+		//获取当前页的学生信息数据
 		StudentDao dao=new StudentDaoImpl();
 		List<Student> list=dao.selectStudentCurrentPage(currentPage);
 		page.setList(list);
 		
+		//获取数据库数据记录总数
+		int count=dao.selectRecordCount();
+		page.setTotalRecord(count);
 		
-		return null;
+		//获取页面总数
+		page.setTotalPages(count%StudentDao.page_record==0?count/StudentDao.page_record:(count/StudentDao.page_record+1));
+		
+		return page;
 		
 	}
 	

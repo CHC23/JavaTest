@@ -10,12 +10,11 @@
 <link rel="stylesheet" href="css/login.css" /> 
 </head>
 <body>
+
 	<div class="container">
-	<h2>
-		<a herf="StudentShowPagesServlet?currentPage=1">分页显示</a>
-	</h2>
 		<h3>请登录</h3>
 		<form action="${pageContext.request.contextPath}/StudentLoginServlet" method="GET" class="form-horizontal">			
+					<input type="hidden" name="currentPage" value="1">
 					<input type="text" name="number" placeholder="请输入学号" class="form-control" id="input">
 					<input type="password" name=password placeholder="请输入密码" class="form-control">
 			     <button type="submit" class="btn btn-success btn-block" id="submit">登录</button>

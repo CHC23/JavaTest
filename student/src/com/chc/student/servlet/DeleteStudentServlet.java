@@ -28,7 +28,7 @@ public class DeleteStudentServlet extends HttpServlet {
 			StudentDaoService service=new StuedntDaoServiceImpl();
 			service.deleteStudenet(id);
 			
-			response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
+			response.sendRedirect(request.getContextPath()+"/StudentShowPagesServlet?currentPage=1");
 			
 		}catch(Exception e) {
 			e.printStackTrace();

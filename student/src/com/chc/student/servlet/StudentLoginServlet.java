@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.chc.student.service.StudentDaoService;
 import com.chc.student.service.StuedntDaoServiceImpl;
@@ -22,6 +23,8 @@ public class StudentLoginServlet extends HttpServlet {
 		
 		
 		try {
+			
+//			int currentPage=Integer.parseInt(request.getParameter("currentPage"));	//设置登录后为第一页
 			//获取表单数据
 			String number=request.getParameter("number");
 			String password=request.getParameter("password");
@@ -35,10 +38,9 @@ public class StudentLoginServlet extends HttpServlet {
 //				System.out.println("gg");
 				return;
 			}
-			//匹配成功则登入
+			//匹配成功则把第一页传递给 "/StudentShowPagesServlet"
 			
-			response.sendRedirect(request.getContextPath()+"/StudentAllServlet");
-			return;
+			request.getRequestDispatcher("StudentShowPagesServlet").forward(request,response);
 			
 			
 		} catch (Exception e) {

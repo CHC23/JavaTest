@@ -12,6 +12,7 @@
 	<div class="container">
 	<h2>请输入学生信息</h2>
 		<form action="AddStudentServlet" method="GET">
+				<input type="hidden" name="currentPage" value="1">
 			姓名：<input type="text" name="sname"><br><br>
 			学号：<input type="text" name="number"><br><br>
 			密码：<input type="text" name="password"><br><br>
